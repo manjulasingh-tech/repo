@@ -1,0 +1,24 @@
+{
+    "Resources": {
+        "EC2WebPlusMySQL": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+			"ImageId":"ami-02f706d959cedf892" ,
+			"InstanceType":"t2.micro",
+			"KeyName":"testkeypair",
+			"SecurityGroupIds":[ "sg-05f26a67744d206e9" ],
+			"SubnetId":"subnet-8ccec1e4",
+			"Tags":[
+			{
+			  "Key":"Name",
+			  "Value": "EC2WebPlusMySQL"
+			}
+			],
+			"UserData":[			
+			  "sudo yum -y install httpd",
+			  "sudo service httpd start"			
+			]
+        }
+    }
+}
+}
